@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": "mut9hnd3_o65u9o",
+      "name": "Test User",
+      "email": "test@taelor.com",
+      "password": "demo123",
+      "role": "management"
+    }
+  ],
+  "session": null,
+  "goods": [
+    {
+      "weekOf": "2026-10-04",
+      "id": "test1",
+      "target": 10,
+      "outputPieces": 8,
+      "name": "Batch Test",
+      "inputPieces": 10,
+      "deadline": "2026-10-10",
+      "status": "Pending",
+      "condition": "Good"
+    },
+    {
+      "id": "n1",
+      "name": "Node Batch",
+      "inputPieces": 5,
+      "outputPieces": 4,
+      "weekOf": "2026-10-04",
+      "target": 5,
+      "deadline": "2026-10-11",
+      "status": "Pending",
+      "condition": "Good"
+    }
+  ],
+  "revenue": [],
+  "loans": [],
+  "workers": [
+    {
+      "id": "mut9sbco_sf271i",
+      "name": "kali",
+      "age": 35,
+      "phone": "9565494695",
+      "sector": "Cutting",
+      "dailyRate": 500,
+      "details": "",
+      "updatedAt": "2026-10-04",
+      "joinDate": "2026-10-04"
+    }
+  ],
+  "payroll": [],
+  "targets": [],
+  "attendance": [],
+  "workerProfiles": {
+    "test@taelor.com": {
+      "name": "kali",
+      "age": 35,
+      "phone": "9565494695",
+      "sector": "Cutting",
+      "dailyRate": 500,
+      "details": "",
+      "updatedAt": "2026-10-04"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Taelor — Garment Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- AUTH -->
+  <section id="view-auth" class="auth-shell">
+    <div class="auth-hero">
+      <h1 class="auth-brand">Taelor</h1>
+      <p class="auth-tagline">Track goods, revenue, workers, and targets — one system for your garment floor.</p>
+    </div>
+    <div class="auth-panel">
+      <div class="auth-card">
+        <h1 id="auth-title">Welcome back</h1>
+        <p class="sub" id="auth-sub">Sign in to manage production or check your worker portal.</p>
+        <div class="tabs">
+          <button type="button" class="tab active" data-auth-tab="login">Login</button>
+          <button type="button" class="tab" data-auth-tab="signup">Sign up</button>
+        </div>
+        <p id="auth-error" class="auth-error hidden"></p>
+        <form id="form-login" class="form-stack">
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" required placeholder="you@company.com" autocomplete="username" />
+          </div>
+          <div class="field">
+            <label for="login-password">Password</label>
+            <input id="login-password" type="password" required placeholder="••••••••" autocomplete="current-password" />
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Login</button>
+        </form>
+        <form id="form-signup" class="form-stack hidden">
+          <div class="field">
+            <label for="signup-name">Full name</label>
+            <input id="signup-name" type="text" required placeholder="Your name" />
+          </div>
+          <div class="field">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" required placeholder="you@company.com" autocomplete="username" />
+          </div>
+          <div class="field">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" required minlength="4" placeholder="Min 4 characters" autocomplete="new-password" />
+          </div>
+          <div class="field">
+            <label for="signup-role">I am joining as</label>
+            <select id="signup-role" required>
+              <option value="management">Management</option>
+              <option value="worker">Worker</option>
+            </select>
+          </div>
+          <button class="btn btn-primary btn-block" type="submit">Create account</button>
+        </form>
+        <p class="auth-hint">Demo tip: sign up once, then choose Management or Worker after login.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROLE SELECT -->
+  <section id="view-role" class="role-shell hidden">
+    <div class="role-wrap">
+      <div class="role-topbar">
+        <span>Signed in as <strong id="role-user-name"></strong></span>
+        <button type="button" class="btn btn-ghost" id="btn-logout-role">Log out</button>
+      </div>
+      <header>
+        <div class="mark">T</div>
+        <h1>Where are you headed?</h1>
+        <p>Pick the side of Taelor you need today.</p>
+      </header>
+      <div class="role-grid">
+        <button type="button" class="role-card" id="pick-management">
+          <div class="num">01 — MANAGEMENT</div>
+          <h2>Factory control</h2>
+          <p>Goods in/out, revenue & loans, worker database, cashier payroll, and company targets.</p>
+          <span class="arrow">Enter management →</span>
+        </button>
+        <button type="button" class="role-card" id="pick-worker">
+          <div class="num">02 — WORKER</div>
+          <h2>Floor portal</h2>
+          <p>Register your sector, log entry & exit attendance, and calculate the salary you should receive.</p>
+          <span class="arrow">Enter worker portal →</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANAGEMENT -->
+  <section id="view-management" class="app-shell hidden">
+    <aside class="rail">
+      <div class="brand-lockup">
+        <div class="brand-mark">T</div>
+        <div>
+          <div class="brand-name">Taelor</div>
+          <div class="brand-caption">Management</div>
+        </div>
+      </div>
+      <div class="rail-label">SECTIONS</div>
+      <nav class="section-nav" id="mgmt-nav">
+        <button type="button" class="nav-item active" data-mgmt="overview"><span class="nav-index">01</span> Overview</button>
+        <button type="button" class="nav-item" data-mgmt="goods"><span class="nav-index">02</span> Goods tracking</button>
+        <button type="button" class="nav-item" data-mgmt="revenue"><span class="nav-index">03</span> Revenue</button>
+        <button type="button" class="nav-item" data-mgmt="workers"><span class="nav-index">04</span> Worker details</button>
+        <button type="button" class="nav-item" data-mgmt="cashier"><span class="nav-index">05</span> Cashier</button>
+        <button type="button" class="nav-item" data-mgmt="targets"><span class="nav-index">06</span> Company target</button>
+      </nav>
+      <div class="rail-bottom">
+        <div class="rail-user"><span class="status-dot"></span> <span id="mgmt-user-label">Online</span></div>
+        <button type="button" class="btn btn-secondary" id="btn-back-mgmt">Switch side</button>
+        <button type="button" class="btn btn-ghost logout-rail" id="btn-logout-mgmt">Log out</button>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="topbar">
+        <div><strong id="mgmt-page-label">Overview</strong> <span>·</span> Garment floor</div>
+        <div id="mgmt-date"></div>
+      </div>
+      <div class="page" id="mgmt-page"></div>
+    </div>
+  </section>
+
+  <!-- WORKER -->
+  <section id="view-worker" class="app-shell hidden">
+    <aside class="rail">
+      <div class="brand-lockup">
+        <div class="brand-mark">T</div>
+        <div>
+          <div class="brand-name">Taelor</div>
+          <div class="brand-caption">Worker</div>
+        </div>
+      </div>
+      <div class="rail-label">PORTAL</div>
+      <nav class="section-nav" id="worker-nav">
+        <button type="button" class="nav-item active" data-worker="register"><span class="nav-index">01</span> Register</button>
+        <button type="button" class="nav-item" data-worker="sector"><span class="nav-index">02</span> Sector</button>
+        <button type="button" class="nav-item" data-worker="time"><span class="nav-index">03</span> Time management</button>
+        <button type="button" class="nav-item" data-worker="salary"><span class="nav-index">04</span> Salary</button>
+      </nav>
+      <div class="rail-bottom">
+        <div class="rail-user"><span class="status-dot"></span> <span id="worker-user-label">Online</span></div>
+        <button type="button" class="btn btn-secondary" id="btn-back-worker">Switch side</button>
+        <button type="button" class="btn btn-ghost logout-rail" id="btn-logout-worker">Log out</button>
+      </div>
+    </aside>
+    <div class="main">
+      <div class="topbar">
+        <div><strong id="worker-page-label">Register</strong> <span>·</span> Worker portal</div>
+        <div id="worker-date"></div>
+      </div>
+      <div class="page" id="worker-page"></div>
+    </div>
+  </section>
+
+  <div id="toast" class="toast hidden"></div>
+  <script src="app.js"></script>
+</body>
+</html>

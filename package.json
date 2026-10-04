@@ -1,0 +1,16 @@
+{
+  "name": "taelor-garment-management",
+  "version": "1.0.0",
+  "description": "Taelor — garment factory management (frontend + Express backend)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
